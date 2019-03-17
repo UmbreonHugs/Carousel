@@ -26,6 +26,7 @@ class App extends Component {
     // upon rendering, we will count how many images we have, then add it to our state so we can keep track of the position.
     this.countImage();
     // We will also make the images automatically slide every 8 seconds. Timer is reset on slideshow changes.
+    // FIXME: Timer is not resetting after user interaction.
     setInterval((event) => this.changeItem("next"), this.state.timer);
   }
     /**
