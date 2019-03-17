@@ -1,0 +1,16 @@
+.carousel {
+    .item {
+        img {
+            width: 100%;
+        }
+        /* if its active, display it */
+        .active {
+            display: block;
+        }
+    }
+    /* indicators to keep track of the carousel */
+    .indicators {
+        list-style-type: none;
+    }
+    /* next and previous buttons */
+}

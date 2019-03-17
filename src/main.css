@@ -304,7 +304,27 @@ template {
 [hidden] {
   display: none; }
 
-body {
+body .app {
   background-color: #fff;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px; }
+
+.container {
+  width: 900px;
+  margin: 0 auto; }
+
+.carousel {
+  /* indicators to keep track of the carousel */
+  /* next and previous buttons */ }
+
+.carousel .item {
+  /* if its active, display it */ }
+
+.carousel .item img {
+  width: 100%; }
+
+.carousel .item .active {
+  display: block; }
+
+.carousel .indicators {
+  list-style-type: none; }
