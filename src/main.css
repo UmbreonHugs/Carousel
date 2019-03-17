@@ -313,6 +313,11 @@ body .App {
   width: 900px;
   margin: 0 auto; }
 
+@media screen and (max-width: 968px) {
+  .container {
+    width: 100%;
+    margin: 0 auto; } }
+
 .carousel {
   position: relative;
   /* indicators to keep track of the carousel. We will use flexbox to center it! */
@@ -341,14 +346,39 @@ body .App {
 .carousel .indicators li {
   float: left; }
 
+.carousel .indicators li button {
+  color: #fff;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  margin: 4px; }
+
 .carousel .button-previous {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0; }
+  left: 0;
+  border: none;
+  padding: 0 20px;
+  background: transparent;
+  color: #fff;
+  font-size: 80px;
+  cursor: pointer; }
+
+.carousel .button-previous:hover {
+  background: rgba(255, 255, 255, 0.5); }
 
 .carousel .button-next {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  border: none;
+  padding: 0 20px;
+  background: transparent;
+  color: #fff;
+  font-size: 80px;
+  cursor: pointer; }
+
+.carousel .button-next:hover {
+  background: rgba(255, 255, 255, 0.5); }
