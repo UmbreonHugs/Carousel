@@ -340,3 +340,15 @@ body .app {
 
 .carousel .indicators li {
   float: left; }
+
+.carousel .button-previous {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0; }
+
+.carousel .button-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0; }
