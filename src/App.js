@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
+import Indicators from './Indicators';
+import PropTypes from 'prop-types';
 import './main.css';
-class Indicators extends Component {
-  render() {
-    return (
-      <li>Indicators</li>
-    )
-  }
-}
+
 class App extends Component {
   // if we want to put this in production, we can make an API call and then push the array of images into the images state!
   state = {
@@ -18,12 +14,13 @@ class App extends Component {
             ],
     imageCount: 0,
     position: 0,
+    timer: 5000
   }
   componentDidMount() {
     // upon rendering, we will count how many images we have, then add it to our state so we can keep track of the position.
     this.countImage();
-    // We will also make the images automatically slide every 5 seconds.
-    setInterval((event) => this.changeItem("next"), 5000);
+    // We will also make the images automatically slide every 5 seconds. Timer is reset on slideshow changes.
+    setInterval((event) => this.changeItem("next"), this.state.timer);
   }
     /**
    * Count how many image urls are in the array, then push the result into the "imageCount" state 
@@ -41,22 +38,26 @@ class App extends Component {
       case "prev":
         // if the position is equal to 0, set it to the image count minus 1 (for offset)
         if (this.state.position === 0) {
-          this.setState({position: this.state.imageCount})
+          this.setState({position: this.state.imageCount, timer: 5000})
         } else {
-        this.setState({position: this.state.position - 1})
+        this.setState({position: this.state.position - 1, timer: 5000})
         }
         break;
       // next image
       case "next":
         // if the position is equal to the image count, then reset it
         if (this.state.position === this.state.imageCount - 1) {
-          this.setState({position: 0})
+          this.setState({position: 0, timer: 5000})
         } else {
-        this.setState({position: this.state.position + 1})
+        this.setState({position: this.state.position + 1, timer: 5000})
         }
         break;
         default:
       }
+    }
+    // we need to turn this into a function
+    updatePosition = (position) => {
+      this.setState({position: position, timer: 5000})
     }
   render() {
     const { images, position, imageCount } = this.state;
@@ -68,15 +69,15 @@ class App extends Component {
             <button className="button-previous" onClick={(event) => this.changeItem("prev")} aria-label="Left">Left</button>
             <button className="button-next" onClick={(event) => this.changeItem("next")} aria-label="Right">Right</button>
             <ul class="indicators">
-            {[...Array(imageCount)].map((_e, i) => {
-              if (i === position) {
+            {[...Array(imageCount)].map((_e, i) => 
+              /* if (i === position) {
                 return <li key={i}><b>{i}</b></li>
               } else {
                 return <li key={i}>{i}</li>
-              }
-            })}
+              } */
+              <Indicators index={i} updatePosition={this.updatePosition} currentPosition={position} />
+            )}
             </ul>
-            <Indicators />
             <div class="item">
               <img src={images[position]} alt="..." />
             </div>

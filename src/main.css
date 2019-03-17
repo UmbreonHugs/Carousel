@@ -304,7 +304,7 @@ template {
 [hidden] {
   display: none; }
 
-body .app {
+body .App {
   background-color: #fff;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px; }
