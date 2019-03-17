@@ -314,11 +314,12 @@ body .app {
   margin: 0 auto; }
 
 .carousel {
-  /* indicators to keep track of the carousel */
+  position: relative;
+  /* indicators to keep track of the carousel. We will use flexbox to center it! */
   /* next and previous buttons */ }
 
 .carousel .item {
-  /* if its active, display it */ }
+  /* if its active, display it (we won't use this in the react version!) */ }
 
 .carousel .item img {
   width: 100%; }
@@ -327,4 +328,15 @@ body .app {
   display: block; }
 
 .carousel .indicators {
-  list-style-type: none; }
+  list-style-type: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  color: #fff; }
+
+.carousel .indicators li {
+  float: left; }
