@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import Indicators from './Indicators';
 import PropTypes from 'prop-types';
-import './main.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import './main.css'; 
+
+// add FontAwesome Libraries
+library.add(faAngleLeft)
 
 class App extends Component {
   // if we want to put this in production, we can make an API call and then push the array of images into the images state!
@@ -10,7 +16,7 @@ class App extends Component {
               "img/mark-basarab-122141-unsplash.jpg", 
               "img/milada-vigerova-35578-unsplash.jpg",
               "img/riccardo-chiarini-365677-unsplash.jpg",
-              "img/thomas-morse-349005-unsplash.jpg",
+              "img/thomas-morse-349005-unsplash.jpg"
             ],
     imageCount: 0,
     position: 0,
@@ -66,7 +72,7 @@ class App extends Component {
         <section className="container" aria-label="Image Carousel">
         <h1>This is an Image Carousel</h1>
           <div className="carousel">
-            <button className="button-previous" onClick={(event) => this.changeItem("prev")} aria-label="Left">Left</button>
+            <button className="button-previous" onClick={(event) => this.changeItem("prev")} aria-label="Left"><FontAwesomeIcon icon="angle-left" /></button>
             <button className="button-next" onClick={(event) => this.changeItem("next")} aria-label="Right">Right</button>
             <ul class="indicators">
             {[...Array(imageCount)].map((_e, i) => 
