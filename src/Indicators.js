@@ -13,7 +13,7 @@ class Indicators extends Component {
       if (currentPosition === index) {
         icon = "o"
       } else {
-        icon = "O"
+        icon = "O" 
       }
       return (
         <li><button onClick={(event) => updatePosition(index)}>{icon}</button></li>
