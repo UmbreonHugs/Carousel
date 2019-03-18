@@ -6,7 +6,6 @@ let images = ["img/dikaseva-34881-unsplash.jpg",
 "img/thomas-morse-349005-unsplash.jpg"
 ]
 let position = 0
-let imageCount = images.length - 1
 let updatePosition = (i) => {
     // remove the active class, then add one
     $(".indicators li button").children('i').removeClass('fa-dot-circle')
@@ -16,24 +15,24 @@ let updatePosition = (i) => {
     })
 }
 $('.button-previous').on('click', function(){
-    if (position === 0) {
-        position = images.length - 1;
-    } else {
-        position = position - 1
+    position = position - 1
+    if (position < 0) {
+        position = images.length - 1
     }
     updatePosition(position)
+    console.log(position)
 })
 $('.button-next').on('click', function(){
-    if (position === images.length - 1) {
+    position = position + 1
+    if (position >= images.length) {
         position = 0;
-    } else {
-        position = position + 1
     }
     updatePosition(position)
+    console.log(position)
 })
 // generate the images
 let generateCarousel = () => {
-    document.querySelector('.indicators').innerHTML = [...Array(imageCount)].map((_e, index) => {
+    document.querySelector('.indicators').innerHTML = [...Array(images.length)].map((_e, index) => {
         let html = `<li><button onClick="updatePosition(${index})" id="indicatorButton" data-index="${index}"><i class="fas fa-circle"></i></button></li>`
         return html
     }).join('')
@@ -47,5 +46,13 @@ let generateCarousel = () => {
         }
         return html
     }).join('')
+     setInterval(function(){
+        position = position + 1
+        if (position >= images.length) {
+            position = 0;
+        }
+        updatePosition(position)
+        console.log(position)
+    }, 5000) 
 }
 generateCarousel()
