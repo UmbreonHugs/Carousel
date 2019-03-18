@@ -12,6 +12,14 @@ Once I finished the functional part, I touched up the layout by adding FontAweso
 ## Preview
 https://umbreonhugs.github.io/carousel-live/
 
+# Requirements
+In order to install this project on your machine, you **must have Node.js installed on your machine**. If you do not have Node.js installed, you may install it [here](https://nodejs.org/en/).
+
+# Usage
+1. **Clone the repository** onto your PC. You can do so by running this command: `git clone https://github.com/UmbreonHugs/Carousel.git`
+2. **Once cloned, install the dependencies required for the project.** You can do so by navigating to the index of the project, and running this command: `npm install`. This process will take several minutes.
+3. **Launch the application once the dependencies are installed.** This can be done by running this command: `npm start` or `yarn start`. A new browser window should open up, pointing to http://localhost:3000
+
 ## Photo Credits
 - Photo 1: Milada Vigerova (https://unsplash.com/@mili_vigerova)
 - Photo 2: Riccardo Chiarini (https://unsplash.com/@riccardoch)
