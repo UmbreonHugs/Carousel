@@ -1,12 +1,15 @@
 .carousel {
     position: relative;
+    overflow: hidden;
     .item {
+        overflow: hidden;
+        /* if its active, display it (we won't use this in the react version!) */
+        img.active {
+            display: block;
+        }
         img {
             width: 100%;
-        }
-        /* if its active, display it (we won't use this in the react version!) */
-        .active {
-            display: block;
+            display: none;
         }
     }
     /* indicators to keep track of the carousel. We will use flexbox to center it! */
@@ -18,7 +21,7 @@
         right: 0;
         display: flex;
         justify-content: center;
-        z-index: 100;
+        z-index: 1;
         color: #fff;
         li {
             float: left;

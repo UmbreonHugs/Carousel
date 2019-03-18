@@ -39,9 +39,9 @@ class App extends Component {
     /**
    * @param {string} pos Direction of the slideshow (prev or next)
    */
-  changeItem = (pos) => {
+  changeItem = (direction) => {
     // previous image
-    switch(pos) {
+    switch(direction) {
       case "prev":
         // if the position is equal to 0, set it to the image count minus 1 (for offset)
         if (this.state.position === 0) {
