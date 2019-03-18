@@ -7,7 +7,7 @@ The images are listed on the website. Then the images with the "active" tag are 
 ## Preview
 https://umbreonhugs.github.io/carousel-live/
 
-### Photo Credits
+## Photo Credits
 - Photo 1: Milada Vigerova (https://unsplash.com/@mili_vigerova)
 - Photo 2: Riccardo Chiarini (https://unsplash.com/@riccardoch)
 - Photo 3: Dikaseva (https://unsplash.com/@dikaseva)
