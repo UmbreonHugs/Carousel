@@ -18,8 +18,7 @@ class App extends Component {
   state = {
     imageCount: 0,
     position: 0,
-    timer: 0,
-    animate: false
+    timer: 0
   }
   
   componentDidMount() {
@@ -85,20 +84,6 @@ class App extends Component {
               <button className="button-next" onClick={(event) => this.changeItem("next")} aria-label="Right"><FontAwesomeIcon icon="angle-right" /></button>
             <ul class="indicators">
             {[...Array(imageCount)].map((_e, i) => 
-              /* if (i === position) {
-                return <li key={i}><b>{i}</b></li>
-              } else {
-                return <li key={i}>{i}</li>
-                              <TransitionGroup>
-                <CSSTransition
-                  key={this.state.position}
-                  timeout={1000}
-                  classNames="animated"
-                >
-                  <img src={images[position]} alt={"Image number " + position} />
-                  </CSSTransition>
-                </TransitionGroup>
-              } */
               <Indicators index={i} updatePosition={this.updatePosition} currentPosition={position} />
             )}
             </ul>
