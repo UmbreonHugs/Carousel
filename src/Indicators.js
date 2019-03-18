@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faDotCircle } from '@fortawesome/free-solid-svg-icons'
@@ -15,6 +15,7 @@ class Indicators extends Component {
     render() {
       const { index, updatePosition, currentPosition } = this.props
       let icon
+      // if the current position matches the index, it will be marked
       if (currentPosition === index) {
         icon = <FontAwesomeIcon icon="dot-circle" />
       } else {
@@ -25,4 +26,4 @@ class Indicators extends Component {
       )
     }
   }
-export default Indicators;
+export default Indicators

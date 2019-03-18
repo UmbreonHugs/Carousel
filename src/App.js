@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Indicators from './Indicators';
+import React, { Component } from 'react'
+import Indicators from './Indicators'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
@@ -7,6 +7,7 @@ import './main.css';
 
 // add FontAwesome Libraries
 library.add(faAngleLeft, faAngleRight)
+// load up the image urls
 const images = ["img/dikaseva-34881-unsplash.jpg", 
 "img/mark-basarab-122141-unsplash.jpg", 
 "img/milada-vigerova-35578-unsplash.jpg",
@@ -19,7 +20,6 @@ class App extends Component {
     position: 0,
     timer: 0
   }
-  
   componentDidMount() {
     // We will also make the images automatically slide every 6 seconds. Timer is reset on slideshow changes.
     this.interval = setInterval(() => {
@@ -27,47 +27,51 @@ class App extends Component {
       if (this.state.timer === 6) {
         this.changeItem("next")
       }
-    }, 1000);
+    }, 1000)
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
-    /**
-   * @param {string} pos Direction of the slideshow (prev or next)
-   */
+/**
+ * changeItem updates the index of the current slide by going backward or forward
+ * @param direction Direction of the slider ("prev" or "next")
+ */
   changeItem = (direction) => {
-    // previous image
     switch(direction) {
+      // previous image
       case "prev":
-        this.setState({position: images.length - 1, timer: 0})
-        // if the position is equal to 0, set it to the image count minus 1 (for offset)
-        if (this.state.position < 0) {
+        this.setState({position: this.state.position - 1, timer: 0})
+        // if the position is less than or equal to 0, set it to the image count minus 1 (for offset)
+        if (this.state.position <= 0) {
           this.setState({position: images.length - 1})
         }
-        break;
+        break
       // next image
       case "next":
         this.setState({position: this.state.position + 1, timer: 0})
-        // if the position is equal to the image count, then reset it
+        // if the position is greater than or equal to the image count, then set it to zero
         if (this.state.position >= images.length - 1) {
           this.setState({position: 0, timer: 0})
         }
-        break;
+        break
         default:
       }
     }
-    // we need to turn this into a function
-    updatePosition = (position) => {
-      this.setState({position: position, timer: 0})
-    }
-    
+  /**
+   * updatePosition updates the index of the current slide by going backward or forward. Will be carried over as a prop.
+   * @param i Index of the slide
+   */
+  updatePosition = (i) => {
+    this.setState({position: i, timer: 0})
+  }
   render() {
     const { position } = this.state;
     return (
       <div className="App">
         <section className="container" aria-label="Image Carousel">
-        <h1>This is an Image Carousel</h1>
+        <h1>Image Carousel (React)</h1>
+        <a href="/carousel-2.html">Javascript Verson</a> <br />
           <div className="carousel">
               <button className="button-previous" onClick={(event) => this.changeItem("prev")} aria-label="Left"><FontAwesomeIcon icon="angle-left" /></button>
               <button className="button-next" onClick={(event) => this.changeItem("next")} aria-label="Right"><FontAwesomeIcon icon="angle-right" /></button>
@@ -87,5 +91,4 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+export default App

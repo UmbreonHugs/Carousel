@@ -6,6 +6,9 @@ body {
 a {
     color: $primary;
 }
+h1 {
+    border-bottom: 1px solid darken($bg-color, 15%);
+}
 .container {
     width: 900px;
     margin: 0 auto;
