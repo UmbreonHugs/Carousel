@@ -324,13 +324,31 @@ body .App {
   /* next and previous buttons */ }
 
 .carousel .item {
-  /* if its active, display it (we won't use this in the react version!) */ }
+  position: relative;
+  z-index: 0;
+  /* if its active, display it (we won't use this in the react version!) */
+  /* Fading animation */ }
 
 .carousel .item img {
   width: 100%; }
 
+.carousel .item .carousel-item {
+  display: none; }
+
 .carousel .item .active {
-  display: block; }
+  display: block;
+  background: #fff;
+  pointer-events: none; }
+
+.carousel .item .fade {
+  animation-name: fade;
+  animation-duration: 1.5s; }
+
+@keyframes fade {
+  from {
+    opacity: .6; }
+  to {
+    opacity: 1; } }
 
 .carousel .indicators {
   list-style-type: none;
@@ -363,6 +381,7 @@ body .App {
   background: transparent;
   color: #fff;
   font-size: 80px;
+  z-index: 100;
   cursor: pointer; }
 
 .carousel .button-previous:hover {
@@ -378,6 +397,7 @@ body .App {
   background: transparent;
   color: #fff;
   font-size: 80px;
+  z-index: 100;
   cursor: pointer; }
 
 .carousel .button-next:hover {
