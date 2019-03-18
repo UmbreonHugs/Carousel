@@ -1,0 +1,17 @@
+body {
+    background-color: $bg-color;
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+// container will break after 950ish pixels
+@media screen and (max-width: 968px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

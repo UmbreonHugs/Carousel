@@ -86,7 +86,7 @@ class App extends Component {
             )}
             </ul>
             <div class="item">
-              <img src={images[position]} alt="..." />
+              <img src={images[position]} alt={"Image number " + position} />
             </div>
           </div>
         </section>
