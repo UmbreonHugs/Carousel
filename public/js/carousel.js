@@ -11,6 +11,8 @@ let position = 0
  * @param i Index of the slider
  */
 let updatePosition = (i) => {
+    // set position
+    position = i
     // remove the active class, then add one
     $(".indicators li button").children('i').removeClass('fa-dot-circle')
     $('.carousel-item.active').removeClass('active').promise().then(function(){
@@ -39,16 +41,16 @@ let slideshow = () => {
  */
 let generateCarousel = () => {
     document.querySelector('.indicators').innerHTML = [...Array(images.length)].map((_e, index) => {
-        let html = `<li><button onClick="updatePosition(${index})" id="indicatorButton" data-index="${index}"><i class="fas fa-circle"></i></button></li>`
+        let html = `<li><button onClick="updatePosition(${index})" aria-label=${index} data-index="${index}"><i class="fas fa-circle"></i></button></li>`
         return html
     }).join('')
     document.querySelector('.item').innerHTML = images.map((image, index) => {
         let html
         if (position === index) {
-            html = `<div class="carousel-item fade active" data-index="${index}"><img src="${image}" alt="${index}" /></div>`
+            html = `<div class="carousel-item fade active" data-index="${index}"><img src="${image}" alt="Image ${index}" /></div>`
             $(".indicators li button[data-index="+ index +"]").children('i').addClass('fa-dot-circle')
         } else {
-            html = `<div class="carousel-item fade" data-index="${index}"><img src="${image}" alt="${index}"/></div>`
+            html = `<div class="carousel-item fade" data-index="${index}"><img src="${image}" alt="Image ${index}"/></div>`
         }
         return html
     }).join('')

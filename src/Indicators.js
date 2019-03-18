@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faDotCircle } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCircle, faDotCircle )
+library.add(faCircle, faDotCircle)
 
 class Indicators extends Component {
     static propTypes = {
@@ -22,7 +22,7 @@ class Indicators extends Component {
         icon = <FontAwesomeIcon icon="circle" />
       }
       return (
-        <li><button onClick={(event) => updatePosition(index)}>{icon}</button></li>
+        <li><button aria-label={index} onClick={(event) => updatePosition(index)}>{icon}</button></li>
       )
     }
   }

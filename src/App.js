@@ -71,18 +71,18 @@ class App extends Component {
       <div className="App">
         <section className="container" aria-label="Image Carousel">
         <h1>Image Carousel (React)</h1>
-        <a href="/carousel-2.html">Javascript Verson</a> <br />
+        <a href="carousel-2.html">Javascript Verson</a> <br />
           <div className="carousel">
-              <button className="button-previous" onClick={(event) => this.changeItem("prev")} aria-label="Left"><FontAwesomeIcon icon="angle-left" /></button>
-              <button className="button-next" onClick={(event) => this.changeItem("next")} aria-label="Right"><FontAwesomeIcon icon="angle-right" /></button>
-            <ul class="indicators">
+              <button className="button-previous" aria-label="Previous Slide" onClick={(event) => this.changeItem("prev")}><FontAwesomeIcon icon="angle-left" /></button>
+              <button className="button-next" aria-label="Next Slide" onClick={(event) => this.changeItem("next")}><FontAwesomeIcon icon="angle-right" /></button>
+            <ul className="indicators">
             {[...Array(images.length)].map((_e, i) => 
-              <Indicators index={i} updatePosition={this.updatePosition} currentPosition={position} />
+              <Indicators key={i} index={i} updatePosition={this.updatePosition} currentPosition={position} />
             )}
             </ul>
-            <div class="item">
+            <div className="item">
               {images.map((images, index) => (
-                <div class={position === index ? "carousel-item fade active" : "carousel-item fade"}><img src={images} alt="..."/></div>
+                <div key={index} className={position === index ? "carousel-item fade active" : "carousel-item fade"}><img src={images} alt={"Image " + index}/></div>
               ))}
             </div>
           </div>
