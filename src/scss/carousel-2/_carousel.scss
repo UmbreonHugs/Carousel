@@ -2,14 +2,25 @@
     position: relative;
     overflow: hidden;
     .item {
-        overflow: hidden;
-        /* if its active, display it (we won't use this in the react version!) */
-        img.active {
-            display: block;
-        }
         img {
             width: 100%;
+        }
+        .carousel-item {
             display: none;
+        }
+        .active {
+            display: block;
+            background: #fff;
+            pointer-events:none;
+            }
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.3s;
+        }
+        @keyframes fade {
+            from {opacity: .6} 
+            to {opacity: 1}
         }
     }
     /* indicators to keep track of the carousel. We will use flexbox to center it! */

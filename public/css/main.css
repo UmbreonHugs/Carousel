@@ -309,6 +309,9 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 18px; }
 
+a {
+  color: #00a2ff; }
+
 .container {
   width: 900px;
   margin: 0 auto; }
@@ -325,15 +328,28 @@ body {
   /* next and previous buttons */ }
 
 .carousel .item {
-  overflow: hidden;
-  /* if its active, display it (we won't use this in the react version!) */ }
-
-.carousel .item img.active {
-  display: block; }
+  /* Fading animation */ }
 
 .carousel .item img {
-  width: 100%;
+  width: 100%; }
+
+.carousel .item .carousel-item {
   display: none; }
+
+.carousel .item .active {
+  display: block;
+  background: #fff;
+  pointer-events: none; }
+
+.carousel .item .fade {
+  animation-name: fade;
+  animation-duration: 1.3s; }
+
+@keyframes fade {
+  from {
+    opacity: .6; }
+  to {
+    opacity: 1; } }
 
 .carousel .indicators {
   list-style-type: none;

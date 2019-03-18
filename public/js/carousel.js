@@ -8,8 +8,8 @@ let images = ["img/dikaseva-34881-unsplash.jpg",
 let position = 0;
 let selectImage = (i) => {
     // remove the active class, then add one
-    $('.item img.active').fadeOut(100).removeClass('active').promise().then(function(){
-        $('.item img[data-index='+ i +']').fadeIn().addClass('active')
+    $('.carousel-item.active').removeClass('active').promise().then(function(){
+        $(".carousel-item[data-index="+ i +"]").addClass('active')
     })
 }
 $('.button-previous').on('click', function(){
@@ -33,9 +33,9 @@ let generateImage = () => {
     document.querySelector('.item').innerHTML = images.map((image, index) => {
         let html;
         if (position === index) {
-            html = `<img src="${image}" alt="${index}" class="active" data-index="${index}" />`
+            html = `<div class="carousel-item fade active" data-index="${index}"><img src="${image}" alt="${index}" /></div>`
         } else {
-            html = `<img src="${image}" alt="${index}" data-index="${index}" />`
+            html = `<div class="carousel-item fade" data-index="${index}"><img src="${image}" alt="${index}"/></div>`
         }
         return html
     }).join('');
